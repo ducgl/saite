@@ -17,18 +17,15 @@ body {
 .bx--side-nav {
     width: 250px;
     transition: transform 0.3s ease;
-    transform: translateX(-250px);
-    /* Скрытое боковое меню */
+    transform: translateX(-250px); /* Скрытое боковое меню */
     position: fixed;
     height: 100%;
     z-index: 1000;
-    background-color: #f4f4f4;
-    /* Цвет фона меню */
+    background-color: #f4f4f4; /* Цвет фона меню */
 }
 
 .bx--side-nav.open {
-    transform: translateX(0);
-    /* Открытое боковое меню */
+    transform: translateX(0); /* Открытое боковое меню */
 }
 
 /* Верхнее меню */
@@ -66,8 +63,7 @@ body {
     }
 
     .bx--content {
-        margin-left: 0;
-        /* Убираем сдвиг контента */
+        margin-left: 0; /* Убираем сдвиг контента */
     }
 }
 
@@ -79,16 +75,13 @@ body {
     }
 
     .bx--side-nav {
-        transform: translateX(0);
-        /* Боковое меню всегда открыто */
+        transform: translateX(0); /* Боковое меню всегда открыто */
         position: relative;
-        float: left;
-        /* Для обтекания контентом */
+        float: left; /* Для обтекания контентом */
     }
 
     .bx--header__menu-toggle {
-        display: none;
-        /* Скрываем значок на десктопе */
+        display: none; /* Скрываем значок на десктопе */
     }
 
     .bx--content {
@@ -99,5 +92,17 @@ body {
 
     .bx--header__nav {
         display: block;
+    }
+
+    /* Контейнер для адаптивного видео на десктопе */
+    .video-container {
+        max-width: 400px; /* Максимальная ширина видео на больших экранах */
+        margin: 0 auto; /* Центрирование видео */
+        padding: 10px 0; /* Отступы сверху и снизу */
+    }
+
+    .video-container iframe {
+        width: 400px; /* Ширина видео на больших экранах */
+        height: 225px; /* Высота видео на больших экранах (400 * 9 / 16) */
     }
 }
