@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт на Carbon Design System</title>
+    <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/carbon-icons/dist/carbon-icons.css">
+    <style>
+        /* Общие стили */
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            margin-top: 50px;
+        }
+
+        /* Контейнер для основного контента и бокового меню */
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        /* Боковое меню */
+        .bx--side-nav {
+            width: 250px;
+            transition: transform 0.3s ease;
+            transform: translateX(-250px); /* Скрытое боковое меню */
+            position: fixed;
+            height: 100%;
+            z-index: 1000;
+            background-color: #f4f4f4; /* Цвет фона меню */
+        }
+
+        .bx--side-nav.open {
+            transform: translateX(0); /* Открытое боковое меню */
+        }
+
+        /* Верхнее меню */
+        .bx--header__nav {
+            display: none;
+        }
+
+        .bx--header__nav.open {
+            display: block;
+        }
+
+        /* Для мобильной версии */
+        @media (max-width: 768px) {
+            .bx--header__menu-toggle {
+                display: block;
+                cursor: pointer;
+                background: none;
+                border: none;
+                font-size: 24px;
+                padding: 10px;
+                margin: 0;
+                color: #fff;
+            }
+
+            /* Боковое меню будет накладываться поверх контента */
+            .bx--side-nav {
+                transform: translateX(-250px);
+                position: fixed;
+                z-index: 1000;
+            }
+
+            .bx--side-nav.open {
+                margin-top: 50px;
+                transform: translateX(0);
+            }
+
+            .bx--content {
+                margin-left: 0; /* Убираем сдвиг контента */
+            }
+        }
+
+        /* Для десктопной версии */
+        @media (min-width: 769px) {
+            .container {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .bx--side-nav {
+                transform: translateX(0); /* Боковое меню всегда открыто */
+                position: relative;
+                float: left; /* Для обтекания контентом */
+            }
+
+            .bx--header__menu-toggle {
+                display: none; /* Скрываем значок на десктопе */
+            }
+
+            .bx--content {
+                margin-left: 0;
+                flex-grow: 1;
+                padding: 20px;
+            }
+
+            .bx--header__nav {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bx--body" style="margin-top: 50px;">
+    <!-- Шапка сайта -->
+    <header class="bx--header" role="banner">
+        <div class="bx--header__name">
+            <a href="/" class="bx--header__name-link">
+                <p>Logo</p>
+            </a>
+        </div>
+          
+        <!-- Шапка для мобильной версии -->
+        <button class="bx--header__menu-toggle">
+            <a href="q" class="bx--header__menu-item">Контакты</a>
+        </button>
+        <button class="bx--header__menu-toggle">
+            <a href="w" class="bx--header__menu-item">О нас</a>
+        </button>
+        
+        <button class="bx--header__menu-toggle" style="text-align: right" onclick="toggleMenu()">☰</button>
+
+        <!-- Шапка для десктопной версии -->
+        <nav class="bx--header__nav" aria-label="Навигация" id="mobile-header-menu">
+            <ul class="bx--header__menu-bar">
+                <li><a href="q" class="bx--header__menu-item">Контакты</a></li>
+                <li><a href="w" class="bx--header__menu-item">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Основной контейнер с боковым меню и контентом -->
+    <div class="container">
+        <!-- Боковое меню -->
+        <aside class="bx--side-nav bx--side-nav--expanded" id="side-menu">
+            <nav class="bx--side-nav__navigation" aria-label="Боковая навигация">
+                <ul class="bx--side-nav__items">
+                    <li class="bx--side-nav__item">
+                        <a href="/page1" class="bx--side-nav__link">
+                            <span class="bx--side-nav__link-text">Страница 1</span>
+                        </a>
+                    </li>
+                    <li class="bx--side-nav__item">
+                        <a href="/page2" class="bx--side-nav__link">
+                            <span class="bx--side-nav__link-text">Страница 2</span>
+                        </a>
+                    </li>
+                    <li class="bx--side-nav__item">
+                        <a href="/page3" class="bx--side-nav__link">
+                            <span class="bx--side-nav__link-text">Страница 3</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Контентная область -->
+        <main class="bx--content" id="main-content" style="margin-left: 0;">
+            <div class="bx--grid">
+                <div class="bx--row">
+                    <div class="bx--col-lg-12">
+                        <h1>Добро пожаловать на сайт!</h1>
+                        <h2>sdgffds</h2>
+
+                        <h2 style="text-indent">sdgffds</h2><h2>sdgffds</h2>
+
+                        <h3>gfdgdf</h3>
+                        <h4>fhgdf</h4>
+                        <h5>dfhd</h5>
+                        <p>Здесь будет контент вашего сайтаfdsghbdfsighbfdsugdfhbguji.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Подвал сайта -->
+    <footer class="bx--footer">
+        <div class="bx--footer__content">
+            <p>&copy; 2023 Компания Название. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для переключения бокового меню и верхнего меню на мобильной версии
+        function toggleMenu() {
+            const sideMenu = document.getElementById('side-menu');
+            sideMenu.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
