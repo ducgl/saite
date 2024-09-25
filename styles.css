@@ -1,0 +1,103 @@
+/* Общие стили */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    margin-top: 50px;
+}
+
+/* Контейнер для основного контента и бокового меню */
+.container {
+    display: flex;
+    flex: 1;
+}
+
+/* Боковое меню */
+.bx--side-nav {
+    width: 250px;
+    transition: transform 0.3s ease;
+    transform: translateX(-250px);
+    /* Скрытое боковое меню */
+    position: fixed;
+    height: 100%;
+    z-index: 1000;
+    background-color: #f4f4f4;
+    /* Цвет фона меню */
+}
+
+.bx--side-nav.open {
+    transform: translateX(0);
+    /* Открытое боковое меню */
+}
+
+/* Верхнее меню */
+.bx--header__nav {
+    display: none;
+}
+
+.bx--header__nav.open {
+    display: block;
+}
+
+/* Для мобильной версии */
+@media (max-width: 768px) {
+    .bx--header__menu-toggle {
+        display: block;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 24px;
+        padding: 10px;
+        margin: 0;
+        color: #fff;
+    }
+
+    /* Боковое меню будет накладываться поверх контента */
+    .bx--side-nav {
+        transform: translateX(-250px);
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .bx--side-nav.open {
+        margin-top: 50px;
+        transform: translateX(0);
+    }
+
+    .bx--content {
+        margin-left: 0;
+        /* Убираем сдвиг контента */
+    }
+}
+
+/* Для десктопной версии */
+@media (min-width: 769px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .bx--side-nav {
+        transform: translateX(0);
+        /* Боковое меню всегда открыто */
+        position: relative;
+        float: left;
+        /* Для обтекания контентом */
+    }
+
+    .bx--header__menu-toggle {
+        display: none;
+        /* Скрываем значок на десктопе */
+    }
+
+    .bx--content {
+        margin-left: 0;
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    .bx--header__nav {
+        display: block;
+    }
+}
