@@ -67,6 +67,19 @@ body {
     }
 }
 
+/* Адаптивные фотографии для мобильной версии */
+.photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
 /* Для десктопной версии */
 @media (min-width: 769px) {
     .container {
@@ -105,4 +118,19 @@ body {
         width: 400px; /* Ширина видео на больших экранах */
         height: 225px; /* Высота видео на больших экранах (400 * 9 / 16) */
     }
+}
+/* Адаптивная таблица для десктопной версии */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table th, .custom-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.custom-table th {
+    background-color: #f2f2f2;
 }
